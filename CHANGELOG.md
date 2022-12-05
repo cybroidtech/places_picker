@@ -1,3 +1,7 @@
+## [2.1.3] - 05/Dec/2022
+
+- Updated README.md
+
 ## [2.1.2] - 05/Dec/2022
 
 - Added Flutter 3 Support
