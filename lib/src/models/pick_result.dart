@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:google_maps_webservice/geocoding.dart';
 import 'package:google_maps_webservice/places.dart';
 
@@ -87,5 +89,38 @@ class PickResult {
       website: result.website,
       reviews: result.reviews,
     );
+  }
+
+  Map<String, dynamic> toPlaceDetailResultMap() {
+    Map<String, dynamic> map = HashMap();
+
+    map['placeId'] = placeId;
+    map['geometry'] = geometry?.toJson();
+    map['location'] = geometry?.location.toJson();
+    map['formattedAddress'] = formattedAddress;
+    map['types'] = types?.map((e) => e).toList();
+
+    map['addressComponents'] =
+        addressComponents?.map((e) => e.toJson()).toList();
+
+    map['adrAddress'] = adrAddress;
+    map['formattedPhoneNumber'] = formattedPhoneNumber;
+    map['id'] = id;
+    map['reference'] = reference;
+    map['icon'] = icon;
+    map['name'] = name;
+    map['openingHours'] = openingHours?.toJson();
+    map['photos'] = photos?.map((e) => e.toJson()).toList();
+    map['internationalPhoneNumber'] = internationalPhoneNumber;
+    map['priceLevel'] = priceLevel;
+    map['rating'] = rating;
+    map['scope'] = scope;
+    map['url'] = url;
+    map['vicinity'] = vicinity;
+    map['utcOffset'] = utcOffset;
+    map['website'] = website;
+    map['reviews'] = reviews?.map((e) => e.toJson()).toList();
+
+    return map;
   }
 }
